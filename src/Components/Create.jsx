@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Create() {
+function Create({setCreateData}) {
 
     const [vardas, setVardas] = useState('');
     const [pavarde, setPavarde] = useState('');
@@ -15,14 +15,23 @@ function Create() {
         setPavarde(e.target.value);
     }
 
-
+     const create = () => {
+        setCreateData({
+            vardas,
+            pavarde,
+            size
+        });
+        setVardas('');
+        setPavarde('');
+        setSize(0)
+     }   
 
 
 
   return (
     <div className="card mt-5">
         <div className="card-header">
-            Nauja  sąskaita
+            <h2>New Account</h2>
         </div>
             <div className="card-body">
                 <div className="m-3">
@@ -31,7 +40,7 @@ function Create() {
                 <div className="m-3">
                     <input type="text" className="form-control" id="floatingInput" placeholder="Pavardė" onChange={addPavarde} value={pavarde}/> 
                 </div>
-                <button type="button" className="btn btn-primary btn-sm m-4">Atidaryti Sąskaita</button>
+                <button type="button" className="btn btn-primary btn-sm m-4" onClick={create}>Create New Account</button>
       </div>
     </div>
   );
