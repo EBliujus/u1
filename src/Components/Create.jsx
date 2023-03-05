@@ -16,6 +16,10 @@ function Create({setCreateData}) {
     }
 
      const create = () => {
+        if(vardas === '' && pavarde === '') {
+            create(null);
+            return;
+        }
         setCreateData({
             vardas,
             pavarde,

@@ -18,7 +18,6 @@ function App() {
 
 
     useEffect(() => {
-      // setTimeout(() => setList(read(key), 10000));
       setList(read(key));
     }, [lastRefresh]);
 
